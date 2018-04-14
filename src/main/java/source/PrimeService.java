@@ -20,8 +20,8 @@ public class PrimeService implements Runnable {
     public void serviceProvider() {
         primeCache = CacheBuilder.newBuilder()
                 .maximumSize(100) //max pieces of cache
-                .expireAfterAccess(10, TimeUnit.MILLISECONDS) //time
-                .expireAfterWrite(20, TimeUnit.MILLISECONDS)
+                .expireAfterAccess(10, TimeUnit.SECONDS)
+                .expireAfterWrite(20, TimeUnit.SECONDS)
                 .build(new CacheLoader<Integer, JSONObject>() {
                     @Override
                     public JSONObject load(Integer integer) throws Exception {
